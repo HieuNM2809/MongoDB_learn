@@ -73,6 +73,50 @@ db.posts.aggregate([
       "category": 1,
       "body": 1,
       "title": 1,
-			"likes" :1
+	  "likes" :1
   }}
+])
+
+-- aggregation $addFields
+db.books.aggregate([
+  {
+    $addFields: {
+      avgGrade: { $avg: "$list.detail" }
+    }
+  },
+  {
+    $project: {
+      "name": 1,
+      "avgGrade": 1
+    }
+  },
+  {
+    $limit: 5
+  }
+])
+
+-- aggregation $count
+db.books.aggregate([
+  {
+    $match: { "name": "Zeng Yuning" }
+  },
+  {
+    $count: "detail"
+  }
+])
+
+
+-- aggregation $lookup
+db.books.aggregate([
+//  { 
+//		  $match : { name : "Zou Yunxi" } 
+//	},
+  {
+    $lookup: {
+      from: "category",
+      localField: "category_id",
+      foreignField: "_id",
+      as: "category",
+    },
+  }
 ])
