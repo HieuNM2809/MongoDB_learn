@@ -1,6 +1,6 @@
 ---------------------------------------- SYNTAX -------------------------------------------------
 - db.posts.find(query, projection) 
-- db.posts.findÔne(query, projection) 
+- db.posts.findOne(query, projection) 
 -> projection : 1 là show. 0 là ẩn
 
 ---------------------------------------- EXAMPLE -------------------------------------------------

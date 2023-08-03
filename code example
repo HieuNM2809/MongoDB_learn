@@ -1,0 +1,12 @@
+-- Tìm user tuổi tỏng khoảng 20t -> 40t
+db.user.find( { "age" : { $in : [ 20, 40 ] }} );
+
+-- Tìm trong cột email có từ .edu
+db.user.find({email: /\.edu.$/})
+
+-- Nested object - profile lưu dưới dạng json
+db.user.find({
+    "profile.city" : "Kiên Giang"
+});
+
+-- 
