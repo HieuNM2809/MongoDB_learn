@@ -1,19 +1,3 @@
-// -- Tìm user tuổi tỏng khoảng 20t -> 40t
-db.user.find( { "age" : { $in : [ 20, 40 ] }} );
-
-// -- Tìm trong cột email có từ .edu
-db.user.find({email: /\.edu$/})
-
-// -- Nested object - profile lưu dưới dạng json
-db.user.find({
-    "profile.city" : "Kiên Giang"
-});
-
-// -- Kiểm tra field tồn tại MongoDB
-db.books.find({
- "category_id" : { $exists : true }
-});
-
 //-- Where nếu ký tự đầu name bằng với ký tự đầu của detail thì lấy 
 db.books.find({
     $where: function () {
