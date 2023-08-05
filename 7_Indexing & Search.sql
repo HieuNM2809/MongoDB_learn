@@ -17,6 +17,7 @@ db.movies.aggregate([
 ]
 
 -- create index
-db.books.createIndex({name:1})
+db.books.createIndex({ name:1 })
+db.books.createIndex({ name:1, detail:1 })
  -1: descending index
   1: ascending  index 
