@@ -49,3 +49,17 @@ db.posts.insertMany([
 		}
     }
 ]);
+
+--------------------    ordered: false
+-- tùy chọn { ordered: false } cho phép MongoDB tiếp tục
+-- chèn tài liệu vào collection mặc dù có lỗi xảy ra, trong khi
+-- { ordered: true } sẽ dừng việc chèn khi gặp lỗi đầu tiên.
+db.posts.insertMany([{
+    "name": "hehe",
+    "detail": "detail"
+}, {
+    "name": "abc",
+    "detail": "detail"
+}], {
+    ordered: false
+});
